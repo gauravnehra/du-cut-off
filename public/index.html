@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <title>Express</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <h1>Find your DU cut-off</h1>
+  <br>
+  <form action="#">
+    <label for="college">College:</label>
+    <select name="college" id="college">
+      <option value="Acharya Narendra Dev College">Acharya Narendra Dev College</option>
+      <option value="Aditi Mahavidyalaya (W)">Aditi Mahavidyalaya (W)</option>
+      <option value="Aryabhatta College">Aryabhatta College</option>
+      <option value="Atma Ram Sanatan Dharma College">Atma Ram Sanatan Dharma College</option>
+      <option value="Bhagini Nivedita College (W)">Bhagini Nivedita College (W)</option>
+    </select>
+    <label for="course">Course:</label>
+    <select name="course" id="course">
+      <option value="B.A Programme (Arabic + Bengali)">B.A Programme (Arabic + Bengali)</option>
+      <option value="B.A Programme (Arabic + Economics)">B.A Programme (Arabic + Economics)</option>
+      <option value="B.A Programme (Arabic + History)">B.A Programme (Arabic + History)</option>
+      <option value="B.A Programme (Arabic + Political Science)">B.A Programme (Arabic + Political Science)</option>
+      <option value="B.A Programme (Bengali + Economics)">B.A Programme (Bengali + Economics)</option>
+    </select>
+    <label for="category">Category:</label>
+    <select name="category" id="category">
+      <option value="0">General</option>
+      <option value="1">OBC</option>
+      <option value="2">SC</option>
+      <option value="3">ST</option>
+      <option value="4">PwD</option>
+    </select>
+    <br><br><br>
+    <button type="button" onclick="getCutOff()">Search</button>
+  </form>
+  <script src="javascripts/main.js"></script>
+</body>
+
+</html>

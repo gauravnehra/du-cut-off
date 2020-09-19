@@ -1,0 +1,14 @@
+{
+  "name": "du-cut-off",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "debug": "~2.6.9",
+    "express": "^4.16.4",
+    "pdf-to-excel": "^0.3.0",
+    "xlsx": "^0.16.7"
+  }
+}
