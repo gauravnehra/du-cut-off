@@ -61,6 +61,43 @@ router.get("/cut-off", function (req, res, next) {
   }
 });
 
+router.get("/valid-college", function (req, res, next) {
+  var course = req.query.course.replace("*plus", "+"); // can't find a better solution to encode "+"
+  var category = req.query.category;
+  var marks = req.query.marks;
+
+  var workbook = xlsx.readFile("./public/files/ba-cut-off.xlsx");
+  var sheet_name_list = workbook.SheetNames;
+  var xlData = xlsx.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
+
+  var validColleges = [];
+  for (i = 0; i < xlData.length; i++) {
+    if (xlData[i]["Name of Course"] === course) {
+      for (college in xlData[i]) {
+        var cutOff = xlData[i][college];
+        if (typeof cutOff === "undefined") {
+          continue;
+        } else {
+          cutOff = cutOff.replace(/([a-zA-Z])\w|\s|\t|\r/gm, "");
+
+          var cutOffArray = cutOff.split("\n");
+
+          if (marks >= cutOffArray[category]) {
+            validColleges.push(college);
+          }
+        }
+      }
+      break;
+    }
+  }
+
+  if (validColleges.length <= 0) {
+    res.status(404).send({ message: "Not Found" });
+  } else {
+    res.status(200).send({ message: "Success", validColleges: validColleges });
+  }
+});
+
 // using node-xlsx
 // var obj = nodexlsx.parse("./public/files/ba-cut-off.xlsx");
 // console.log(obj[0].data[1]);

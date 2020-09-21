@@ -64,6 +64,7 @@ function getCutOff() {
 }
 
 function getValidColleges() {
+  clearPreviousResults();
   var course = document.getElementById("course").value;
   course = course.replace("+", "*plus"); // can't find a better solution to encode "+"
   var category = document.getElementById("category").value;
@@ -82,7 +83,7 @@ function getValidColleges() {
     if (this.readyState === 4) {
       if (this.status === 200) {
         var colleges = [];
-        colleges = JSON.parse(this.responseText).colleges;
+        colleges = JSON.parse(this.responseText).validColleges;
 
         for (i = 0; i < colleges.length; i++) {
           var college = document.createElement("li");
@@ -97,4 +98,8 @@ function getValidColleges() {
     }
   };
   xmlHttpRequest.send();
+}
+
+function clearPreviousResults() {
+  document.getElementById("valid-colleges").innerHTML = "";
 }
