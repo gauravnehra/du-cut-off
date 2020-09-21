@@ -1,6 +1,10 @@
 function getLists() {
   var xmlHttpRequest = new XMLHttpRequest();
-  xmlHttpRequest.open("GET", "http://localhost:3000/list", true);
+  xmlHttpRequest.open(
+    "GET",
+    "http://ec2-15-207-72-134.ap-south-1.compute.amazonaws.com:3000/list",
+    true
+  );
   xmlHttpRequest.setRequestHeader("Content-Type", "application/json");
   xmlHttpRequest.setRequestHeader("Access-Control-Allow-Origin", "*");
   xmlHttpRequest.onreadystatechange = function () {
@@ -44,7 +48,9 @@ function getCutOff() {
 
   query = encodeURI(query);
 
-  var uri = "http://localhost:3000/cut-off?" + query;
+  var uri =
+    "http://ec2-15-207-72-134.ap-south-1.compute.amazonaws.com:3000/cut-off?" +
+    query;
   var xmlHttpRequest = new XMLHttpRequest();
   xmlHttpRequest.open("GET", uri, true);
   xmlHttpRequest.setRequestHeader("Content-Type", "application/json");
@@ -74,7 +80,9 @@ function getValidColleges() {
 
   query = encodeURI(query);
 
-  var uri = "http://localhost:3000/valid-college?" + query;
+  var uri =
+    "http://ec2-15-207-72-134.ap-south-1.compute.amazonaws.com:3000/valid-college?" +
+    query;
   var xmlHttpRequest = new XMLHttpRequest();
   xmlHttpRequest.open("GET", uri, true);
   xmlHttpRequest.setRequestHeader("Content-Type", "application/json");

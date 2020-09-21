@@ -82,8 +82,10 @@ router.get("/valid-college", function (req, res, next) {
 
           var cutOffArray = cutOff.split("\n");
 
-          if (marks >= cutOffArray[category]) {
-            validColleges.push(college);
+          if (cutOffArray[category]) {
+            if (marks >= cutOffArray[category]) {
+              validColleges.push(college);
+            }
           }
         }
       }
