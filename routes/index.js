@@ -64,7 +64,7 @@ router.get("/cut-off", function (req, res, next) {
 router.get("/valid-college", function (req, res, next) {
   var course = req.query.course.replace("*plus", "+"); // can't find a better solution to encode "+"
   var category = req.query.category;
-  var marks = req.query.marks;
+  var marks = parseInt(req.query.marks);
 
   var workbook = xlsx.readFile("./public/files/ba-cut-off.xlsx");
   var sheet_name_list = workbook.SheetNames;
@@ -83,7 +83,7 @@ router.get("/valid-college", function (req, res, next) {
           var cutOffArray = cutOff.split("\n");
 
           if (cutOffArray[category]) {
-            if (marks >= cutOffArray[category]) {
+            if (marks >= parseInt(cutOffArray[category])) {
               validColleges.push(college);
             }
           }
