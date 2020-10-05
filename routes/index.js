@@ -22,6 +22,8 @@ router.get("/list", function (req, res, next) {
     courses.push(obj[0].data[i][0]);
   }
 
+  res.header("Access-Control-Allow-Origin", "*");
+
   res
     .status(200)
     .send({ message: "Success", colleges: colleges, courses: courses });
