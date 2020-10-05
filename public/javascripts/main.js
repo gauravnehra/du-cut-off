@@ -1,9 +1,9 @@
-const host = "ec2-15-207-72-134.ap-south-1.compute.amazonaws.com";
+const host = "du-cut-off.herokuapp.com";
 //const host = "localhost";
 
 function getLists() {
   var xmlHttpRequest = new XMLHttpRequest();
-  xmlHttpRequest.open("GET", "http://" + host + ":3000/list", true);
+  xmlHttpRequest.open("GET", "https://" + host + "/list", true);
   xmlHttpRequest.setRequestHeader("Content-Type", "application/json");
   xmlHttpRequest.setRequestHeader("Access-Control-Allow-Origin", "*");
   xmlHttpRequest.onreadystatechange = function () {
